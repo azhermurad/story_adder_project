@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="/materialize/css/materialize.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>BookProject</title>
+</head>
+
+<body>
+  {{>_header}}
+  <main>
+    <div class="container">
+      {{{body}}}
+    </div>
+  </main>
+  {{#if user}}
+  {{>_add-fixedbtn}}
+  {{/if}}
+  {{>_footer}}
+
+  <script src="/materialize/js/jquery.js"></script>
+  <script src="/materialize/js/materialize.js"></script>
+  <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+  <script src="/js/index.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+      $('select').formSelect();
+       $('.modal').modal();
+    });
+    CKEDITOR.replace('description');
+   
+  </script>
+</body>
+
+</html>

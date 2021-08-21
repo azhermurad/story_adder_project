@@ -1,0 +1,36 @@
+<h1>Add Story</h1>
+<div class="row">
+    <form class="col s12 card add-form hoverable"  action="/stories" method="POST" >
+        <div class="row">
+            <div class="input-field ">
+                <input placeholder="title" name="title" type="text" required>
+                <label for="title">Title</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <select name="status" id="">
+                    <option value="public">public</option>
+                    <option value="private" selected>private</option>
+                    <option value="draft">draft</option>
+                </select>
+                <label for="status">status</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <h5>Tell your story:</h5>
+                <textarea name="description" required placeholder="Describe your story here" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <p>
+                <label>
+                    <input type="checkbox" name="allowedcomment" class="filled-in" checked="checked" />
+                    <span>Allowed Commmets</span>
+                </label>
+            </p>
+        </div>
+        <input type="submit" value="save" class="btn red ">
+    </form>
+</div>

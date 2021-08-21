@@ -1,0 +1,30 @@
+<nav class="red" style="margin-bottom: 20px;">
+  <div class="container">
+    <div class="nav-wrapper">
+      <a href="" class="brand-logo center">BookProject</a>
+      <a href="" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-small-only">
+        {{#if user}}
+        <li><a href="/dashboard"> Welcome <strong>{{this.user.firstName}}</strong></a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+        {{else}}
+        <li><a href="/stories">Public Stories</a></li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  {{#if user}}
+  <li><a href="/stories">Public Stories</a></li>
+  <li class="divider"></li>
+  <li><a href="/dashboard" class="">Dashboard</a></li>
+  <li><a href="/stories/my" class="">My Stories</a></li>
+  <li><a href="/auth/logout" class=""> Logout</a></li>
+   
+  {{else}}
+  <li><a href="/auth/google" class="btn red darken"><i class="fa fa-google"></i> Login with Google</a></li>
+  <li><a href="/stories" class=""><i class="fa fa-google"></i> Public Stories</a></li>
+  {{/if}}
+</ul>

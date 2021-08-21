@@ -1,0 +1,43 @@
+<h1>welcome to Dashboard {{user.firstName}}</h1>
+<p>List all the stories</p>
+<table class="striped responsive-table mytable">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each story}}
+        <tr>
+            <td><a href="/stories/show/{{id}}">{{title}}</a></td>
+            <td>{{ dateFormat createdAt 'month'}}</td>
+            <td>{{status}}</td>
+            <td class="deleteandupdate">
+                <a class="btn #66bb6a green   lighten-1 " id="editbtn" href="/stories/edit/{{_id}}">Edit</a>
+                <form action="/stories/{{_id}}?_method=DELETE" method="POST" id="delete-form" style="display: inline;">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class="btn red delete" value="Delete">
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+
+    </tbody>
+</table>
+
+
+<!-- Modal Structure -->
+{{!-- <div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
+ --}}
+

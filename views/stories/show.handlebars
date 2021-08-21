@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col s12 m8">
+        <div class="card">
+            <div class="card-content">
+                <h4>{{story.title}}</h4>
+                {{{story.description}}}
+            </div>
+        </div>
+        {{#if story.allowedcomment}}
+        <div class="card">
+            <div class="card-content">
+                <div class="card-title">
+                    Add comment
+                </div>
+                {{#if user}}
+                <form action="/stories/comment/{{story._id}}" method="POST">
+                    <div class="input-field ">
+                        <input placeholder="comment" name="comment" type="text" required>
+                        <label for="comment">comment</label>
+                    </div>
+                </form>
+                {{else}}
+                <p>Please <a href="/">login</a> login</p>
+                {{/if}}
+            </div>
+        </div>
+
+        {{/if}}
+        {{#each story.comments}}
+        <div class="card">
+            <div class="card-content">
+                <h6>
+                    {{commentbody}}
+                </h6>
+                <div class="chip">
+                    <img src="{{userid.image}}" alt="{{userid.firstName}}">
+                    {{userid.firstName}} {{userid.lastName}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="col s12 m4">
+        <div class="card center-align">
+            <div class="card-content">
+                <h5>{{story.user.firstName}} {{story.user.lastName}}</h5>
+                <img src="{{story.user.image}}" class="responsive-img circle" alt="" srcset="">
+            </div>
+            <div class="card-action">
+                <a href="/stories/user/{{story.user._id}}">More Story From {{story.user.firstName}}</a>
+            </div>
+        </div>
+    </div>
+</div>

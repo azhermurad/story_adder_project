@@ -1,0 +1,41 @@
+<h1>Edit Story</h1>
+<div class="row">
+    <form class="col s12 card add-form hoverable" action="/stories/{{story._id}}?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field ">
+                <input placeholder="title" name="title" type="text" required value="{{story.title}}">
+                <label for="title">Title</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <select name="status" id="">
+                    {{#select story.status}}
+                    <option value="public">public</option>
+                    <option value="private">private</option>
+                    <option value="draft">draft</option>
+                    {{/select}}
+                </select>
+                <label for="status">status</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <h5>Tell your story:</h5>
+                <textarea name="description" placeholder="Describe your story here" cols="30"
+                    rows="10">{{story.description}}</textarea>
+            </div>
+        </div>
+        <div class="row">
+            <p>
+                <label>
+                    <input type="checkbox" name="allowedcomment" class="filled-in" {{#if
+                        story.allowedcomment}}checked="checked" {{/if}} />
+                    <span>Allowed Commmets</span>
+                </label>
+            </p>
+        </div>
+        <input type="submit" value="save" class="btn red ">
+    </form>
+</div>

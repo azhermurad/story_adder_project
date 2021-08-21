@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main{
+    flex: 1;
+}
+footer {
+    margin-top: 20px;
+}
+.add-form {
+    padding: 22px !important;
+}
+.add-form textarea::placeholder{
+    padding: 10px;
+};
+/* table #delete-form {
+    display: inline !important;
+}; */
+table .deleteandupdate{
+    display: flex !important;
+}
